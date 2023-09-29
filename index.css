@@ -120,9 +120,7 @@
     color: rgb(203, 54, 0)
 }
 
-.filter-btn{
-    margin: 10px;
-}
+
 
 /* Shimmer-card css*/
 .shimmer-container {
@@ -139,3 +137,12 @@
     border-color: #d3d5df;
     box-shadow: 0 4px 7px 0 rgb(218 220 230 / 60%);
   }
+
+  .filter-card{
+    display: flex;
+    margin: 10px;
+  }
+
+  .filter-btn{
+    margin-left: 15px;
+}
