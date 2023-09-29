@@ -40,6 +40,9 @@
     cursor: pointer;
 }
 
+.login-btn{
+    padding: 0px 10px;
+}
 
 /* Body CSS */
 
