@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurantList, setrestaurantList] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -18,9 +19,9 @@ const Body = () => {
     console.log(json);
 
     //optional chaining
-    setrestaurantList(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    setrestaurantList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
   };
 
 
@@ -31,13 +32,24 @@ const Body = () => {
     <div className="body-container">
       <div className="filter-card">
         <div className="search-btn">
-          <input type="text" value={searchText} onChange={(e) => {
-            setSearchText(e.target.value);
-          }} />
-          <button type="submit" onClick={() => {
-            const resUpdatedList = restaurantList.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-            setrestaurantList(resUpdatedList);
-          }}>Submit</button>
+          <input
+            type="text"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            type="submit"
+            onClick={() => {
+              const resUpdatedList = restaurantList.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredList(resUpdatedList);
+            }}
+          >
+            Submit
+          </button>
         </div>
 
         <button
@@ -54,7 +66,7 @@ const Body = () => {
       </div>
 
       <div className="res-list">
-        {restaurantList?.map((restaurant) => {
+        {filteredList?.map((restaurant) => {
           return <ResCard key={restaurant?.info?.id} {...restaurant?.info} />;
         })}
       </div>
