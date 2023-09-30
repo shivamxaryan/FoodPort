@@ -15,6 +15,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6263764&lng=77.2090704&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
+    console.log(json);
 
     //optional chaining
     setrestaurantList(
@@ -33,7 +34,10 @@ const Body = () => {
           <input type="text" value={searchText} onChange={(e) => {
             setSearchText(e.target.value);
           }} />
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={() => {
+            const resUpdatedList = restaurantList.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+            setrestaurantList(resUpdatedList);
+          }}>Submit</button>
         </div>
 
         <button
