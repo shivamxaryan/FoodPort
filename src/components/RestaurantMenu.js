@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-import { Params, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MENU_CARD } from "../utils/constants";
 
 const RestaurantMenu = () => {

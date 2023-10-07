@@ -1,6 +1,7 @@
 import ResCard from "./ResCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restaurantList, setrestaurantList] = useState([]);
@@ -19,11 +20,13 @@ const Body = () => {
     console.log(json);
 
     //optional chaining
-    setrestaurantList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
+    setrestaurantList(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredList(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
-
 
   //conditional rendering
   return restaurantList.length === 0 ? (
@@ -67,7 +70,14 @@ const Body = () => {
 
       <div className="res-list">
         {filteredList?.map((restaurant) => {
-          return <ResCard key={restaurant?.info?.id} {...restaurant?.info} />;
+          return (
+            <Link
+              to={"/restaurants/" + restaurant.info.id}
+              key={restaurant?.info?.id}
+            >
+              <ResCard {...restaurant?.info} />;
+            </Link>
+          );
         })}
       </div>
     </div>
