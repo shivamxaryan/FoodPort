@@ -1,14 +1,16 @@
-import ResCard from "./ResCard";
+import ResCard, {withPromotedLabel} from "./ResCard";
 import { RESLIST_URL } from "../utils/constants";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { withPromotedLabel } from "./ResCard";
 
 const Body = () => {
   const [restaurantList, setrestaurantList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
+  // const ResCardPromroted = withPromotedLabel(ResCard);
 
   useEffect(() => {
     fetchData();
@@ -38,10 +40,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body-container">
-      <div className="filter-card flex">
+      <div className="filter-card flex ml-[2.5%]">
         <div className="search-btn m-4 p-4">
           <input
-          className="border border-solid border-black "
+          className="border border-solid border-black"
             type="text"
             value={searchText}
             onChange={(e) => {
@@ -78,14 +80,15 @@ const Body = () => {
        
       </div>
 
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center">
         {filteredList?.map((restaurant) => {
           return (
             <Link
               to={"/restaurants/" + restaurant.info.id}
               key={restaurant?.info?.id}
             >
-              <ResCard {...restaurant?.info} />;
+          
+              <ResCard {...restaurant?.info} />
             </Link>
           );
         })}
