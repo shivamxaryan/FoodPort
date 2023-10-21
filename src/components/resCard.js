@@ -1,5 +1,6 @@
+import { useContext } from "react";
 import { CARD_URL } from "../utils/constants";
-
+import UserContext from "../utils/UserContext"
 const ResCard = ({
     cloudinaryImageId,
     name,
@@ -9,6 +10,10 @@ const ResCard = ({
     costForTwo,
     avgRating,
   }) => {
+
+    //useContext Example
+    const {loggedInUser} = useContext(UserContext);
+
     return (
       <div className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200">
 
@@ -29,6 +34,7 @@ const ResCard = ({
           <h5>{avgRating}⭐</h5>
           <h5>{sla.slaString}</h5>
         </div>
+        <h2>Logged In: {loggedInUser}</h2>
       </div>
     )
   };
