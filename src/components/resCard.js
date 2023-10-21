@@ -34,7 +34,7 @@ const ResCard = ({
           <h5>{avgRating}⭐</h5>
           <h5>{sla.slaString}</h5>
         </div>
-        <h2>Logged In: {loggedInUser}</h2>
+        <h2>User : {loggedInUser}</h2>
       </div>
     )
   };

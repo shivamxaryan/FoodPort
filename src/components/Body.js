@@ -1,10 +1,12 @@
-import ResCard, {withPromotedLabel} from "./ResCard";
+import ResCard, { withPromotedLabel } from "./ResCard";
 import { RESLIST_URL } from "../utils/constants";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { withPromotedLabel } from "./ResCard";
+import UserContext from "../utils/UserContext";
+// import { withPromotedLabel } from "./ResCard";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [restaurantList, setrestaurantList] = useState([]);
@@ -17,9 +19,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      RESLIST_URL
-    );
+    const data = await fetch(RESLIST_URL);
     const json = await data.json();
 
     //optional chaining
@@ -32,8 +32,12 @@ const Body = () => {
   };
 
   //check online or offline
-  const onlineStatus=useOnlineStatus();
-  if (onlineStatus===false) return <h1>You are Offline. Please check your internet connection!!</h1>;
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return <h1>You are Offline. Please check your internet connection!!</h1>;
+
+  //useContext
+  const { setUserName, loggedInUser } = useContext(UserContext);
 
   //conditional rendering
   return restaurantList.length === 0 ? (
@@ -43,7 +47,7 @@ const Body = () => {
       <div className="filter-card flex ml-[2.5%]">
         <div className="search-btn m-4 p-4">
           <input
-          className="border border-solid border-black"
+            className="border border-solid border-black"
             type="text"
             value={searchText}
             onChange={(e) => {
@@ -51,7 +55,7 @@ const Body = () => {
             }}
           />
           <button
-          className="px-4 py-2 bg-green-100 m-4 rounded-lg"
+            className="px-4 py-2 bg-green-100 m-4 rounded-lg"
             type="submit"
             onClick={() => {
               const resUpdatedList = restaurantList.filter((res) =>
@@ -65,19 +69,28 @@ const Body = () => {
         </div>
 
         <div className="m-4 p-4 flex items-center">
-        <button
-          className="px-4 py-2 bg-gray-100 rounded-lg"
-          onClick={() => {
-            const resupdatedlist = restaurantList.filter(
-              (res) => res.info.avgRating > 4
-            );
-            setrestaurantList(resupdatedlist);
-          }}
-        >
-          Top Rated Restaurant
-        </button>
+          <button
+            className="px-4 py-2 bg-gray-100 rounded-lg"
+            onClick={() => {
+              const resupdatedlist = restaurantList.filter(
+                (res) => res.info.avgRating > 4
+              );
+              setrestaurantList(resupdatedlist);
+            }}
+          >
+            Top Rated Restaurant
+          </button>
         </div>
-       
+
+        <div className="m-4 p-4 flex items-center">
+          <label>User : </label>
+          <input
+            type="text"
+            className="border border-black"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
 
       <div className="flex flex-wrap justify-center">
@@ -87,7 +100,6 @@ const Body = () => {
               to={"/restaurants/" + restaurant.info.id}
               key={restaurant?.info?.id}
             >
-          
               <ResCard {...restaurant?.info} />
             </Link>
           );
