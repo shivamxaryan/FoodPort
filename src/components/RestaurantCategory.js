@@ -1,12 +1,12 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data }) => {
+const RestaurantCategory = ({ data, showList, setShowIndex }) => {
     // console.log(data);
 
-    const[showList, setShowList]= useState(false);
     const handleList =() =>{
-        setShowList(!showList);
+        // setShowList(!showList);
+        setShowIndex();
     }
 
     return (
@@ -15,7 +15,7 @@ const RestaurantCategory = ({ data }) => {
             <div className="flex justify-between cursor-pointer">
                 <span className="font-bold text-md">
                     {data?.title} ({data?.itemCards.length})
-                </span>
+                </span> 
                 <span>⬇️</span>
             </div>
 
