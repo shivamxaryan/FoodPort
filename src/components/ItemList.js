@@ -6,9 +6,9 @@ const ItemList = ({ items }) => {
 //   console.log(items);
 
   const dispatch=useDispatch();
-  const handleAddItems=()=>{
+  const handleAddItems=(item)=>{
     //will dispatch an action from cart slice
-    dispatch(addItem("ice cream"));
+    dispatch(addItem(item));
   }
 
   return (
@@ -29,7 +29,7 @@ const ItemList = ({ items }) => {
           <div className="w-2/12">
             <div className="absolute ">
               <button className=" p-1 align-bottom border-2 border-black bg-black text-white text-xs shadow-md rounded-md"
-              onClick={handleAddItems}>
+              onClick={()=>handleAddItems(item)}>
                 Add +
               </button>
             </div>
