@@ -5,11 +5,9 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
-// import { withPromotedLabel } from "./ResCard";
-import UserContext from "../utils/UserContext";
 
 const Body = () => {
-  const [restaurantList, setrestaurantList] = useState([]);
+  const [restaurantList, setRestaurantList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
   // const ResCardPromroted = withPromotedLabel(ResCard);
@@ -23,7 +21,7 @@ const Body = () => {
     const json = await data.json();
 
     //optional chaining
-    setrestaurantList(
+    setRestaurantList(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredList(
@@ -37,15 +35,16 @@ const Body = () => {
     return <h1>You are Offline. Please check your internet connection!!</h1>;
 
   //useContext
-  const { setUserName, loggedInUser } = useContext(UserContext);
+  // const { setUserName, loggedInUser } = useContext(UserContext);
+
 
   //conditional rendering
   return restaurantList.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body-container">
-      <div className="filter-card flex ml-[2.5%]">
-        <div className="search-btn m-4 p-4">
+      <div className="flex ml-[2.5%]">
+        <div className="m-4 p-4">
           <input
             className="border border-solid border-black"
             type="text"
@@ -75,14 +74,14 @@ const Body = () => {
               const resupdatedlist = restaurantList.filter(
                 (res) => res.info.avgRating > 4
               );
-              setrestaurantList(resupdatedlist);
+              setFilteredList(resupdatedlist);
             }}
           >
             Top Rated Restaurant
           </button>
         </div>
 
-        <div className="m-4 p-4 flex items-center">
+        {/* <div className="m-4 p-4 flex items-center">
           <label>User : </label>
           <input
             type="text"
@@ -90,7 +89,7 @@ const Body = () => {
             value={loggedInUser}
             onChange={(e) => setUserName(e.target.value)}
           />
-        </div>
+        </div> */}
       </div>
 
       <div className="flex flex-wrap justify-center">

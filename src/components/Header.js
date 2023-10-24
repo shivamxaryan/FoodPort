@@ -15,10 +15,15 @@ const Header = () => {
   //using selector to subscribe the cart items or store
   const cartItems= useSelector((store)=>store.cart.items);
 
+  //refresh page
+  const refreshPage=()=>{
+    window.location.reload(false);
+  }
+
     return (
-      <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-50 lg:bg-green-50">
-        <div className="w-28">
-          <img src={LOGO_URL} alt="logo" />
+      <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-100 lg:bg-green-100">
+        <div className="w-44 justify-center ml-3 mt-4">
+          <button onClick={refreshPage}><img src="https://www.foodport.us/img/logologo.f87723ea.png" alt="logo" /></button>
         </div>
 
         <div className="flex items-center">
@@ -27,9 +32,9 @@ const Header = () => {
             <li className="px-4"><Link to="/">Home</Link></li>
             <li className="px-4"><Link to="/about">About Us</Link></li>
             <li className="px-4"><Link to="/contact">Contact Us</Link></li>
-            <li className="px-4 font-semibold"><Link to="/cart">🛒-({cartItems.length})</Link></li>
+            <li className="px-4 font-semibold "><Link to="/cart">🛒<sup>{cartItems.length}</sup></Link></li>
             <li
-              className="login-btn"
+              className="cursor-pointer"
               onClick={()=>{
                 logbtn === "Login"
                   ? setlogbtn("LogOut")
@@ -38,7 +43,7 @@ const Header = () => {
             >
               {logbtn}
             </li>
-            <li className="px-4 font-bold">{loggedInUser}</li>
+            {/* <li className="px-4 font-bold">{loggedInUser}</li> */}
           </ul>
         </div>
       </div>

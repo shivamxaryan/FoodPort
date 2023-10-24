@@ -24,17 +24,17 @@ const ResCard = ({
             cloudinaryImageId
           }
         />
-        <h2  className="font-bold py-4 text-lg">
+        <h3  className="font-bold py-4 text-lg">
           {name}
-        </h2>
-        <h4>{cuisines.join(", ")}</h4>
-        <h4>{areaName}</h4>
+        </h3>
+        <h6 className="mb-1 block overflow-hidden h-5">{cuisines.join(", ")}</h6>
+        <h6>{areaName}</h6>
         <h4>{costForTwo}</h4>
-        <div className="flex justify-between">
-          <h5>{avgRating}⭐</h5>
-          <h5>{sla.slaString}</h5>
+        <div className="flex justify-between font-semibold">
+          <h4>{avgRating}⭐</h4>
+          <h4>{sla.slaString}</h4>
         </div>
-        <h2>User : {loggedInUser}</h2>
+        {/* <h2>User : {loggedInUser}</h2> */}
       </div>
     )
   };
