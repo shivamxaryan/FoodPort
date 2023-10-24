@@ -2,10 +2,10 @@ import React from "react";
 
 function App() {
   return (
-    <div className="bg-gray-200 border-b-2 h-32">
+    <div className="bg-gray-200 border-b-2 h-32 ">
       <div className="max-w-2xl mx-auto text-gray-900 py-5">
         <div className="text-center">
-          <h3 className="text-xl mb-2">Download our app</h3>
+          <h3 className="text-xl mb-2">For better experience,download the FoodPort app now</h3>
 
           <div className="flex justify-center  my-6">
             <div className="flex items-center border bg-black text-white border-black rounded-md px-3 py-1 w-auto mx-2">

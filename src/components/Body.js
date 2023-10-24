@@ -32,7 +32,7 @@ const Body = () => {
   //check online or offline
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
-    return <h1>You are Offline. Please check your internet connection!!</h1>;
+    return <h1 className="font-extrabold text-center text-3xl">You are Offline. Please check your internet connection!!</h1>;
 
   //useContext
   // const { setUserName, loggedInUser } = useContext(UserContext);

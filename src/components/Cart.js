@@ -13,7 +13,7 @@ const Cart =() => {
     }
 
     return(
-        <div className="text-center">
+        <div className="text-center mb-14">
             <h1 className="m-4 p-2 font-bold text-[37px]">Cart</h1>
 
             <button className="m-2 p-1 text-sm bg-black text-white rounded-lg"
