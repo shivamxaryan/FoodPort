@@ -4,7 +4,7 @@ Food Port is large scalable food ordering appilication which uses Swiggy's API t
 
 ## Tech Stack
 
-**Client:** React, Redux, TailwindCSS, React Router, Javascripts, Babel, Webpack
+React, Redux, TailwindCSS, React Router, Javascripts, Babel, Webpack
 
 ## Author
 
