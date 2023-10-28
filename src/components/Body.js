@@ -1,4 +1,4 @@
-import ResCard from "./ResCard";
+import ResCard from "./ResCard.js";
 import { RESLIST_URL } from "../utils/constants";
 import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
