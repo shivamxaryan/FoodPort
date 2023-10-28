@@ -13,6 +13,7 @@ import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
+import Register from "./components/Register";
 
 const AppLayout = () => {
   //useContext example
@@ -67,6 +68,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/login",
         element:<Login />,
+      },
+      {
+        path:"/signup",
+        element:<Register />,
       }
     ],
     errorElement: <Error />,
