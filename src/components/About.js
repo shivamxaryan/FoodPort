@@ -3,7 +3,7 @@ import { SiLeetcode } from "react-icons/si";
 
 const About = () => {
   return (
-    <div className=" mt-32 mb-12">
+    <div className=" mt-24 mb-12">
       <div className="flex flex-col-reverse md:flex-row  mx-16 justify-between">
         <div className="flex flex-col w-full  md:w-3/5">
           <div className="justify-center md:justify-start gap-3 mt-4 md:mt-28 mb-7 ">

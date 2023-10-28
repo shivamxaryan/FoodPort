@@ -32,15 +32,8 @@ const Header = () => {
             <li className="px-4"><Link to="/about">About Us</Link></li>
             <li className="px-4"><Link to="/contact">Contact Us</Link></li>
             <li className="px-4 font-semibold "><Link to="/cart">🛒<sup>{cartItems.length}</sup></Link></li>
-            <li
-              className="cursor-pointer"
-              onClick={()=>{
-                logbtn === "Login"
-                  ? setlogbtn("LogOut")
-                  : setlogbtn("Login")
-              }}
-            >
-              {logbtn}
+            <li className="cursor-pointer">
+            <Link to="/login">Login</Link>
             </li>
             {/* <li className="px-4 font-bold">{loggedInUser}</li> */}
           </ul>
