@@ -42,7 +42,7 @@ const About = () => {
         </div>
         <div className="flex items-center justify-center ">
           <img
-            src="https://media.licdn.com/dms/image/D4D03AQGp63FCz3dc7Q/profile-displayphoto-shrink_400_400/0/1698509984319?e=1703721600&v=beta&t=3NvOhtExfFcTDdrX9y5z-pDYPyc5AMeuvkkt1KffD5A"
+          src="https://media.licdn.com/dms/image/D4D03AQFtP7oJtCvcFw/profile-displayphoto-shrink_400_400/0/1698566909642?e=1704326400&v=beta&t=t3CF8eyF-l1IJxfGrn7tOW67chyzb5lR88drMovJDNE"
             alt="Profile Picture"
             className="w-[300px] rounded-full border-solid border-8 "
           />
