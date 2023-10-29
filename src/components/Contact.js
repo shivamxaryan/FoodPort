@@ -29,12 +29,11 @@ const Contact =() => {
                         id="message" rows="6" placeholder="Enter your message"></textarea>
                 </div>
                 <div class="flex justify-end">
-                    <button
-                        class="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                        type="button"
-                        onClick={()=>window.location.reload(false)}>
+                    <div
+                        class="bg-slate-500 hover:bg-slate-700 cursor-pointer text-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        >
                         Send
-                    </button>
+                    </div>
                 </div>
             </form>
         </div>
