@@ -1,7 +1,3 @@
-const refreshPage = () => {
-  window.location.reload(false);
-};
-
 const Contact = () => {
   return (
     <div>
@@ -46,7 +42,7 @@ const Contact = () => {
                 ></textarea>
               </div>
               <div class="flex justify-end">
-                <div class="bg-slate-500 hover:bg-slate-700 cursor-pointer text-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={refreshPage}>
+                <div class="bg-slate-500 hover:bg-slate-700 cursor-pointer text-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                   Send
                 </div>
               </div>
