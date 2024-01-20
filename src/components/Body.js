@@ -22,10 +22,10 @@ const Body = () => {
 
     //optional chaining
     setRestaurantList(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredList(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -39,7 +39,7 @@ const Body = () => {
 
 
   //conditional rendering
-  return restaurantList.length === 0 ? (
+  return restaurantList?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body-container">
@@ -72,7 +72,7 @@ const Body = () => {
             className="px-4 py-2 bg-gray-100 rounded-lg"
             onClick={() => {
               const resupdatedlist = restaurantList.filter(
-                (res) => res.info.avgRating > 4
+                (res) => res.info.avgRating > 4.2
               );
               setFilteredList(resupdatedlist);
             }}
@@ -80,16 +80,6 @@ const Body = () => {
             Top Rated Restaurant
           </button>
         </div>
-
-        {/* <div className="m-4 p-4 flex items-center">
-          <label>User : </label>
-          <input
-            type="text"
-            className="border border-black"
-            value={loggedInUser}
-            onChange={(e) => setUserName(e.target.value)}
-          />
-        </div> */}
       </div>
 
       <div className="flex flex-wrap justify-center">
