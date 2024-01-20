@@ -47,12 +47,7 @@ const Register = () => {
                 className="block w-full px-4 py-2 mt-2 text-slate-700 bg-white border rounded-md focus:border-slate-400 focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
               />
             </div>
-            {/* <a
-                        href="#"
-                        className="text-xs text-slate-600 hover:underline"
-                    >
-                        Forget Password?
-                    </a> */}
+
             <div className="mt-6">
               <div
                 className="w-full cursor-pointer text-center px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-slate-700 rounded-md hover:bg-slate-600 focus:outline-none focus:bg-slate-600"
@@ -63,16 +58,6 @@ const Register = () => {
             </div>
           </form>
 
-          {/* <p className="mt-8 text-xs font-light text-center text-gray-700">
-                    {" "}
-                    Don't have an account?{" "}
-                    <a
-                        href="#"
-                        className="font-medium text-slate-600 hover:underline"
-                    >
-                       <span>Sign up</span>
-                    </a>
-                </p> */}
         </div>
       </div>
     </div>
